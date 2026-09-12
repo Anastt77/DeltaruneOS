@@ -1,1 +1,105 @@
-<p> test </p>
+<!DOCTYPE html>
+<html>
+  <div style="position: absolute; height: fit-content; display: flex; backdrop-filter: blur(10px);
+   background-color: rgba(0, 0, 0, 0.7); justify-content: space-between; align-items: left; width: 100%; border-radius: 20px;">
+
+    <p style="margin-left: 16px; font-weight: 700; background-color: rgba(256, 256, 256, 0.125); 
+    padding: 4px 12px; border-radius: 16px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 13px;">
+      DeltaruneOS
+    </p>
+
+      <p 
+        id="timeElement"
+        style="margin-right: 16px; background-color: rgba(256, 256, 256, 0.125); padding: 4px 12px; border-radius: 16px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 13px;">
+        {currentTime}
+      </p>
+
+  </div>
+
+  <body>
+    
+  <br>
+<br>
+
+    <div class="everything">
+      <h1>Welcome to my Deltarune-themed WebOS!</h1>
+      <h2>Introduction</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuJ6GFCAumszl8W_IC0g3B5T_wsJFVqjMNZCNzNynbQ&s=10" width="300" /> 
+      <br>
+      <p>Deltarune is an rpg created by Toby Fox. It is a follow-up to his previous game, Undertale, featuring a new cast of characters and a different storyline. The game has received critical acclaim for its unique gameplay mechanics, engaging story, and memorable soundtrack.</p>   
+      <a href="https://www.deltarune.com/">Click here to visit the official Deltarune website!</a>
+      <br>
+    </div>
+
+
+    <style>
+      body {
+        background-image: url('https://sm.ign.com/ign_gr/news/d/deltarune-/deltarune-chapter-6-will-release-in-2027-chapter-5-shatters_zfz5.jpg');
+        background-size: cover;
+        height: 100vh;
+      }
+
+      .everything {
+        backdrop-filter: blur(10px);
+        position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        margin: 0 auto;
+        width: 700px;
+        text-align: left;
+        font-family: Arial, sans-serif;
+        color: #FFFFFF;
+        border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        letter-spacing: 0.7px;
+      }
+
+      a {
+        color: #00FFFF;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      img {
+        border-radius: 10px;
+      }
+
+    </style>
+
+
+
+    <script>
+
+      function updateTime() {
+        var currentTime = new Date().toLocaleString();
+        var timeText = document.querySelector("#timeElement");
+        timeText.innerHTML = currentTime;
+      }
+
+      setInterval(updateTime, 1000);
+
+      
+
+    </script>
+
+
+  </body>
+
+</html>
