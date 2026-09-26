@@ -1,105 +1,144 @@
 <!DOCTYPE html>
 <html>
+  <head> 
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+
   <div style="position: absolute; height: fit-content; display: flex; backdrop-filter: blur(10px);
-   background-color: rgba(0, 0, 0, 0.7); justify-content: space-between; align-items: left; width: 100%; border-radius: 20px;">
+   background-color: rgba(0, 0, 0, 0.7); justify-content: space-between; align-items: left; width: 100%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
 
     <p style="margin-left: 16px; font-weight: 700; background-color: rgba(256, 256, 256, 0.125); 
     padding: 4px 12px; border-radius: 16px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 13px;">
       DeltaruneOS
     </p>
 
+    <p style="cursor: pointer; margin-right: 16px; font-weight: 700; background-color: rgba(256, 256, 256, 0.125); 
+    padding: 4px 12px; border-radius: 16px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 13px;" id="welcomeopen">
+    Introduction</p>
+
       <p 
         id="timeElement"
         style="margin-right: 16px; background-color: rgba(256, 256, 256, 0.125); padding: 4px 12px; border-radius: 16px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 13px;">
         {currentTime}
       </p>
-
   </div>
 
   <body>
-    
   <br>
-<br>
+  <br>
 
-    <div class="everything">
-      <h1>Welcome to my Deltarune-themed WebOS!</h1>
-      <h2>Introduction</h2>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuJ6GFCAumszl8W_IC0g3B5T_wsJFVqjMNZCNzNynbQ&s=10" width="300" /> 
+    <div class="window" id="tenna">
+      <div class="windowheader" id="tennaheader">
+        <img src="https://media.tenor.com/Bw_wpW9wn7YAAAAi/tenna-ant-tenna.gif" style="width: 200px; height: 200px;"/>
+      </div>
+    </div>
+
+    <div class="window" id="welcome">
+      <div class="windowheader" id="welcomeheader">Welcome!! <p style="cursor: pointer" class="closebutton" id="welcomeclose">X</p>  </div>
+		     
+      <h1 style="padding-left: 12px; padding-right: 15px;">Deltarune-themed WebOS!</h1>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuJ6GFCAumszl8W_IC0g3B5T_wsJFVqjMNZCNzNynbQ&s=10" width="300" style="padding-left: 12px; padding-right: 15px;"/> 
       <br>
-      <p>Deltarune is an rpg created by Toby Fox. It is a follow-up to his previous game, Undertale, featuring a new cast of characters and a different storyline. The game has received critical acclaim for its unique gameplay mechanics, engaging story, and memorable soundtrack.</p>   
-      <a href="https://www.deltarune.com/">Click here to visit the official Deltarune website!</a>
+      <p style="padding-left: 12px; padding-right: 15px;">Deltarune is an rpg created by Toby Fox. It is the official successor to Undertale, featuring new and returning characters, an epic soundtrack and a different storyline, paired with an improved party type battle system.</p>   
+      <a style="padding-left: 12px; padding-right: 15px;" href="https://www.deltarune.com/">Click here to visit the official Deltarune website!</a>
       <br>
     </div>
 
 
-    <style>
-      body {
-        background-image: url('https://sm.ign.com/ign_gr/news/d/deltarune-/deltarune-chapter-6-will-release-in-2027-chapter-5-shatters_zfz5.jpg');
-        background-size: cover;
-        height: 100vh;
-      }
+    <div id="desktopApps" style="padding-top: 40px; padding-left: 16px;">
+      <div id="notesopen" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 20px rgb(166, 187, 232)); width: fit-content">
+      <img src="https://i.pinimg.com/736x/80/c8/42/80c84228bd1081db036b2679a5b853d6.jpg" style="width: 64px; height: 64px; border-radius: 20px;">
+		  <p style="font-family: Arial, Helvetica, sans-serif; margin: 0px; color: #92c8f4; font-weight:bold;">Wiki</p>
+      </div>
+      <div class="window" id="notes" style="display: none;">
+        <div class="windowheader" id="notesheader">Wiki<p style="cursor: pointer" class="closebutton" id="notesclose">X</p></div>
+        <div class="topnav">
+          <button class="tablink" onclick="openPage('Home', this,)" id="defaultOpen">Home</button>
+          <button class="tablink" onclick="openPage('mainchars', this,)">Main Characters</button>
+          <button class="tablink" onclick="openPage('chapters', this,)">Chapters</button>
+        </div>
+        <div style="overflow-y: scroll; height: 400px; width: 700px; color-scheme: dark;">
 
-      .everything {
-        backdrop-filter: blur(10px);
-        position: absolute; top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 20px;
-        margin: 0 auto;
-        width: 700px;
-        text-align: left;
-        font-family: Arial, sans-serif;
-        color: #FFFFFF;
-        border-radius: 20px;
-      }
+          <div id = "Home" class="tabcontent">
+            <h1 class="nomarg">Wiki App</h1>
+            <p>You can use this to find info about deltarune and its characters. Source of info is <a href="https://deltarune.wiki/">the official deltarune wiki</a></p>
+            <p>-Deltarune is an episodic role-playing game with up to seven Chapters listed. It features a party system where Kris leads their friends as they explore the Dark World and Light World. It fetures a "bullet hell" style combat system with turns, as well as many gameplay-wise diverse minigames and interesting puzzles mechanics.</p>
+            <img src="https://www.nintendoworldreport.com/media/49734/1/9.jpg" style="width: 500px; height: auto;"/>
+            <p>-The Dark World and Light World live in harmony with each other: Lightners are supported by the Darkners, who are living manifestations of objects in the Light World. It is foretold by the prophecy that the light and dark will fall out of balance and bring an apocalyptic disaster. The three heroes of the prophecy (kris, ralsei, susie) try to prevent this tragic outcome and seal the dark fountains created by the knight.</p>
+            <img src="https://i.ytimg.com/vi/3OmpzbsmVq0/maxresdefault.jpg" style="width: 500px; height: auto;"/>
+          </div>
 
-      h1 {
-        font-size: 30px;
-      }
+          <div id = "mainchars" class="tabcontent">
+            <h1 class="nomarg">Kris</h1>
+            <p>Kris Dreemurr is the main protagonist of Deltarune, as well as a human and the quiet first hero of the prophecy. For the majority of the game, Kris is controlled by the player (aka the "soul"), with their choices impacting the story's developemnt. Kris can move independently during cutscenes, or when they tear the soul out of their body.</p>
+              <figure>
+                <img src="https://deltarune.wiki/images/Kris_overworld_static.png?cb=ofs57b&h=thumb.php&f=Kris_overworld_static.png"/>
+                <img src="https://deltarune.wiki/images/Kris_overworld_Dark_World.png?cb=q4itwh&h=thumb.php&f=Kris_overworld_Dark_World.png" />
+                <figcaption>Kris, light world and dark world version</figcaption>
+              </figure>
+             
+            <h1 class="nomarg">Ralsei</h1>
+              <p>Ralsei is a darkner prince and one of the main characters of Deltarune. He is the gentle and selfless third hero of the prophecy, though he begins to consider his own feelings in later Chapters. Ralsei rules over Castle Town, where he first appears to inform Kris and Susie of their destiny, and lives in his castle there.</p>
+                <figure>
+                  <img src="https://deltarune.wiki/images/Ralsei_overworld_hatless.png?cb=28wh18&h=thumb.php&f=Ralsei_overworld_hatless.png"/>
+                  <img src="https://deltarune.wiki/images/Ralsei_overworld.png?cb=073h1f&h=thumb.php&f=Ralsei_overworld.png"/>
+                  <figcaption>Ralsei, no hat and hat version</figcaption>
+                </figure>
+       
+            <h1 class="nomarg">Susie</h1>
+            <p>Susie is one of the main characters of Deltarune. She is the rude and rebellious second hero of the prophecy, who warms up to others in later Chapters. In the Dark World, she wields an axe in encounters. Susie boasts the highest max HP and Attack in the party, allowing her to tank hits and deal high damage when fighting.</p>
+                <figure>
+                  <img src="https://deltarune.wiki/images/Susie_overworld_eyes.png?cb=k8mq0v&h=thumb.php&f=Susie_overworld_eyes.png"/>
+                  <img src="https://deltarune.wiki/images/Susie_overworld_Dark_World_eyes.png?cb=fz5zdj&h=thumb.php&f=Susie_overworld_Dark_World_eyes.png"/>
+                  <figcaption>Susie, light world and dark world version</figcaption>
+                </figure>
+          </div>
 
-      h2 {
-        font-size: 24px;
-      }
+          <div id = "chapters" class="tabcontent">
+            <h1 class="nomarg">Chapter 1</h1>
+            <p>After Kris gets paired with Susie, the two discover the Dark World, meet Ralsei, and learn of their predetermined roles. The two Lightners venture to return home to the Light World, and are impeded by various characters and ultimately the King, who is also the chapter's final boss.</p>
+            <h1 class="nomarg">Chapter 2</h1>
+            <p>This Chapter is primarily set in the Cyber World, a Dark World created in the library's computer lab. Its antagonist and final boss is Queen, the dark world manifestation of a laptop. Chapter 2 also implements many new gameplay mechanics, such as a beat them up type fighting minigame. </p>
+            <h1 class="nomarg">Chapter 3</h1>
+            <p>Susie and Kris wake up to find the Dreemurr residence has transformed into a new Dark World. Shortly after, Ralsei reunites with them and together they traverse TV World, a tv-studio like place with Tenna, the Dreemurrs' CRT TV as the host. This chapter has tv inpsired minigames, such as game shows, cooking shows, and a full on rythym game!</p>
+            <h1 class="nomarg">Chapter 4</h1>
+            <p>This Chapter is primarily set in the Dark Sanctuaries, a set of three Dark Worlds created in the church. Its main antagonist is the Knight, who is determined to keep trying to disrupt the balance between light and dark. A very lore heavy chapter, as many aspects of the prophecy are explained in detail.</p>
+            <h1 class="nomarg">Chapter 5</h1>
+            <p>After hometown's festival, the trio enters a dark fountain opened in Flower King, where they find they find Kris's father alongside the unconventional Flowery, who keeps distracting him from the heroes. Chapter 5 features flower characters that mirror the different soul traits from undertale and a 2d platformer style section.</p>
+              <img src="https://deltarune.wiki/images/Chapter_1_icon.png?cb=5145fk&h=thumb.php&f=Chapter_1_icon.png"/>
+              <img src="https://deltarune.wiki/images/Chapter_2_icon.png?cb=8zbuae&h=thumb.php&f=Chapter_2_icon.png"/>
+              <img src="https://deltarune.wiki/images/Chapter_3_icon.png?cb=1ubf1m&h=thumb.php&f=Chapter_3_icon.png"/>
+              <img src="https://deltarune.wiki/images/Chapter_4_icon.png?cb=cur2gw&h=thumb.php&f=Chapter_4_icon.png"/>
+              <img src="https://deltarune.wiki/images/Chapter_5_icon.png?cb=4964za&h=thumb.php&f=Chapter_5_icon.png"/>
+          </div>
+	    </div>
+    </div>
 
-      p {
-        font-size: 18px;
-        line-height: 1.5;
-        letter-spacing: 0.7px;
-      }
+  <div id="desktopApps" style="padding-top: 20px; padding-left: 8px; padding-right: 10px;">
+    <div id="timeropen" style="text-align: center; padding: 10px; filter: drop-shadow(0 0 20px rgb(166, 187, 232)); width: fit-content">
+      <img src="https://i.pinimg.com/736x/ef/92/d6/ef92d6f8952aa6a72ee85f4a1b037285.jpg" style="width: 64px; height: 64px; border-radius: 20px;">
+		  <p style="font-family: Arial, Helvetica, sans-serif; margin: 0px; color: #92c8f4; font-weight:bold;">Timer</p>
+    </div>
+    <div class="window" id="timer" style="display: none;">
+      <div class="windowheader" id="timerheader">Timer App<p style="cursor: pointer" class="closebutton" id="timerclose">X</p></div>
+        <div style = "height: 400px; width: 300px; margin-left: 12px; margin-right: 15px;">
+          <h1 id="timerh1" >Timer</h1>
+          <div class="timing">
+            <input type="number" id="hour" min="0" step="1" placeholder="hh"></input>
+            <h2 class="colon"> : </h2>
+            <input type="number" id="min" min="0" step="1" placeholder="mm"></input>
+            <h2 class="colon"> : </h2>
+            <input type="number" id="sec" min="0" step="1" placeholder="ss"></input>
+          </div>
 
-      a {
-        color: #00FFFF;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      img {
-        border-radius: 10px;
-      }
-
-    </style>
-
-
-
-    <script>
-
-      function updateTime() {
-        var currentTime = new Date().toLocaleString();
-        var timeText = document.querySelector("#timeElement");
-        timeText.innerHTML = currentTime;
-      }
-
-      setInterval(updateTime, 1000);
-
-      
-
-    </script>
-
+          <div class="buttons">
+            <button id="start" onclick="startTime()">Start Timer</button>
+            <button id="reset" onclick="resetTime()">Reset Timer</button>
+          </div>
+        </div>
+    </div>
+  </div>
 
   </body>
-
 </html>
