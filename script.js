@@ -5,6 +5,22 @@ function updateTime() {
     }
 setInterval(updateTime, 1000);
 
+
+function updateClock() {
+    const now = new Date();
+    const second = now.getSeconds();
+    const minute = now.getMinutes();
+    const hours = now.getHours();
+    document.getElementById('hours').style.transform = `rotate(${30 * hours + minute / 2}deg)`;
+    document.getElementById('minute').style.transform = `rotate(${6 * minute}deg)`;
+    document.getElementById('second').style.transform = `rotate(${6 * second}deg)`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+
+
+
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -92,6 +108,29 @@ var notesScreenOpen = document.querySelector("#notesopen")
 notesScreenOpen.addEventListener("click", function() {
     notesScreen.style.display = "flex";
 });
+
+var browserScreen = document.querySelector("#browser")
+var browserScreenClose = document.querySelector("#browserclose")
+var browserScreenOpen = document.querySelector("#browseropen")
+browserScreenClose.addEventListener("click", function(e) {
+    e.stopPropagation();
+    browserScreen.style.display = "none";
+});
+browserScreenOpen.addEventListener("click", function() {
+    browserScreen.style.display = "flex";
+});
+
+var dogScreen = document.querySelector("#dog")
+var dogScreenClose = document.querySelector("#dogclose")
+var dogScreenOpen = document.querySelector("#dogopen")
+dogScreenClose.addEventListener("click", function(e) {
+    e.stopPropagation();
+    dogScreen.style.display = "none";
+});
+dogScreenOpen.addEventListener("click", function() {
+    dogScreen.style.display = "flex";
+});
+
 
 
 var timerScreen = document.querySelector("#timer")
@@ -202,6 +241,7 @@ const startTime = () => {
   timer_set = hour * 60 * 60 + min * 60 + sec;
   startTicking();
 }
+
 
 
 
